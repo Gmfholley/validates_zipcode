@@ -1,6 +1,6 @@
 module ValidatesZipcode
   class Zipcode
-    include CldrRegexpCollection
+    include CldrAlpha3RegexpCollection
 
     def initialize(args = {})
       @zipcode        = args.fetch(:zipcode)

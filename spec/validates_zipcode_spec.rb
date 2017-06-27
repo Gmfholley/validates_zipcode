@@ -4,14 +4,14 @@ describe ValidatesZipcode, '#validate_each' do
   context "Luxembourg" do
     it 'does not add errors with a valid zipcode' do
       ['L-5635', '5635'].each do |zipcode|
-        record = build_record(zipcode, "LU")
+        record = build_record(zipcode, "LUX")
         zipcode_should_be_valid(record)
       end
     end
 
     it 'adds errors with an invalid Zipcode' do
       ['124', '12345-12345', 'D0D0D0', 'invalid_zip'].each do |zipcode|
-        record = build_record(zipcode, 'LU')
+        record = build_record(zipcode, 'LUX')
         zipcode_should_be_invalid(record, zipcode)
       end
     end
@@ -19,13 +19,13 @@ describe ValidatesZipcode, '#validate_each' do
 
   context "Spain" do
     it 'does not add errors with a valid zipcode' do
-      record = build_record('93108', "ES")
+      record = build_record('93108', "ESP")
       zipcode_should_be_valid(record)
     end
 
     it 'adds errors with an invalid Zipcode' do
       ['1234', '12345-12345', 'D0D0D0', 'invalid_zip'].each do |zipcode|
-        record = build_record(zipcode, 'ES')
+        record = build_record(zipcode, 'ESP')
         zipcode_should_be_invalid(record, zipcode)
       end
     end
@@ -33,7 +33,7 @@ describe ValidatesZipcode, '#validate_each' do
 
   context "USA" do
     it 'does not add errors with a valid zipcode' do
-      record = build_record('93108', "US")
+      record = build_record('93108', "USA")
       zipcode_should_be_valid(record)
       [12345, '12345', '12345-1234', '12345-123456', '12345 1234', '12345 123456'].each do |zipcode|
         record = build_record(zipcode, 'US')
@@ -43,7 +43,7 @@ describe ValidatesZipcode, '#validate_each' do
 
     it 'adds errors with an invalid Zipcode' do
       ['1234', '12345-12345', 'D0D0D0', 'invalid_zip'].each do |zipcode|
-        record = build_record(zipcode, 'US')
+        record = build_record(zipcode, 'USA')
         zipcode_should_be_invalid(record, zipcode)
       end
     end
@@ -52,14 +52,14 @@ describe ValidatesZipcode, '#validate_each' do
   context "Ireland" do
     it 'does not add errors with a valid postcode' do
       ['D6W1234', 'A230984', 'D00AV92', 'Y631FHK', 'A000000', 'D44N4X4'].each do |zipcode|
-        record = build_record(zipcode, 'IE')
+        record = build_record(zipcode, 'IRL')
         zipcode_should_be_valid(record)
       end
     end
 
     it 'adds errors with an invalid Zipcode' do
       ['1234', '12345-12345', 'invalid_zip'].each do |zipcode|
-        record = build_record(zipcode, 'IE')
+        record = build_record(zipcode, 'IRL')
         zipcode_should_be_invalid(record, zipcode)
       end
     end
@@ -67,13 +67,13 @@ describe ValidatesZipcode, '#validate_each' do
 
   context "Argentina" do
     it 'does not add errors with a valid zipcode' do
-      record = build_record('C1424CHN', "AR")
+      record = build_record('C1424CHN', "ARG")
       zipcode_should_be_valid(record)
     end
 
     it 'adds errors with an invalid Zipcode' do
       ['1234', '12345', 'D0D0D0', 'invalid_zip'].each do |zipcode|
-        record = build_record(zipcode, 'AR')
+        record = build_record(zipcode, 'ARG')
         zipcode_should_be_invalid(record, zipcode)
       end
     end
@@ -82,14 +82,14 @@ describe ValidatesZipcode, '#validate_each' do
   context "Chile" do
     it 'does not add errors with a valid zipcode' do
       ['123-1233', '000-0000', '1234567'].each do |zipcode|
-        record = build_record(zipcode, "CL")
+        record = build_record(zipcode, "CHL")
         zipcode_should_be_valid(record)
       end
     end
 
     it 'adds errors with an invalid Zipcode' do
       ['1234', '12345', 'D0D0D0', 'invalid_zip', 'C1424CHN', '122-12345'].each do |zipcode|
-        record = build_record(zipcode, 'CL')
+        record = build_record(zipcode, 'CHL')
         zipcode_should_be_invalid(record, zipcode)
       end
     end
@@ -97,14 +97,14 @@ describe ValidatesZipcode, '#validate_each' do
 
   context "Australia and New Zeland" do
     it 'does not add errors with a valid zipcode' do
-      ["AU", "NZ"].each do |code|
+      ["AUS", "NZL"].each do |code|
         record = build_record('9310', code)
         zipcode_should_be_valid(record)
       end
     end
 
     it 'adds errors with an invalid Zipcode' do
-      ["AU", "NZ"].each do |code|
+      ["AUS", "NZL"].each do |code|
         ['C1424CHN', '12345', 'invalid_zip'].each do |zipcode|
           record = build_record(zipcode, code)
           zipcode_should_be_invalid(record, zipcode)
@@ -115,13 +115,13 @@ describe ValidatesZipcode, '#validate_each' do
 
   context "Canada" do
     it 'does not add errors with a valid zipcode' do
-      record = build_record('A1J2Z9', 'CA')
+      record = build_record('A1J2Z9', 'CAN')
       zipcode_should_be_valid(record)
     end
 
     it 'adds errors with an invalid Zipcode' do
       ['C1424CHN', '12345', 'D0D0D0', 'invalid_zip'].each do |zipcode|
-        record = build_record(zipcode, 'CA')
+        record = build_record(zipcode, 'CAN')
         zipcode_should_be_invalid(record, zipcode)
       end
     end
@@ -129,12 +129,12 @@ describe ValidatesZipcode, '#validate_each' do
 
   context 'Serbia' do
     it 'validates with a valid zipcode' do
-      record = build_record('21000', 'RS')
+      record = build_record('21000', 'SRB')
       zipcode_should_be_valid(record)
     end
 
     it 'does not validate with an invalid zipcode' do
-      record = build_record('2100', 'RS')
+      record = build_record('2100', 'SRB')
       zipcode_should_be_invalid(record)
     end
   end
@@ -148,26 +148,26 @@ describe ValidatesZipcode, '#validate_each' do
 
   context 'Lithuania' do
     it 'validates with a valid zipcode' do
-      record = build_record('LT-0110', 'LT')
+      record = build_record('LT-0110', 'LTU')
       zipcode_should_be_valid(record)
-      record = build_record('LT-00110', 'LT')
+      record = build_record('LT-00110', 'LTU')
       zipcode_should_be_valid(record)
     end
 
     it 'does not validate with an invalid zipcode' do
-      record = build_record('21006', 'LT')
+      record = build_record('21006', 'LTU')
       zipcode_should_be_invalid(record)
     end
   end
 
   context 'Moldova' do
     it 'validates with a valid zipcode' do
-      record = build_record('MD2001', 'MD')
+      record = build_record('MD2001', 'MDA')
       zipcode_should_be_valid(record)
     end
 
     it 'does not validate with an invalid zipcode' do
-      record = build_record('MD-2100', 'MD')
+      record = build_record('MD-2100', 'MDA')
       zipcode_should_be_invalid(record)
     end
   end
@@ -181,7 +181,7 @@ describe ValidatesZipcode, '#validate_each' do
     end
 
     it 'does not validate with an invalid zipcode' do
-      record = build_record('4500-2500', 'PT')
+      record = build_record('4500-2500', 'PRT')
       zipcode_should_be_invalid(record)
     end
   end
@@ -189,13 +189,13 @@ describe ValidatesZipcode, '#validate_each' do
   context 'Brazil' do
     it 'validates with a valid zipcode' do
       ['72315', '72315-500', '72315500', '24210-325', '24210325'].each do |zipcode|
-        record = build_record(zipcode, 'BR')
+        record = build_record(zipcode, 'BRA')
         zipcode_should_be_valid(record)
       end
     end
 
     it 'does not validate with an invalid zipcode' do
-      record = build_record('723155', 'BR')
+      record = build_record('723155', 'BRA')
       zipcode_should_be_invalid(record)
     end
   end
@@ -203,13 +203,13 @@ describe ValidatesZipcode, '#validate_each' do
   context 'South Korea' do
     it 'validates with a valid zipcode' do
       ['72315', '723-150', '11011', '110-110'].each do |zipcode|
-        record = build_record(zipcode, 'KR')
+        record = build_record(zipcode, 'KOR')
         zipcode_should_be_valid(record)
       end
     end
 
     it 'does not validate with an invalid zipcode' do
-      record = build_record('723155', 'KR')
+      record = build_record('723155', 'KOR')
       zipcode_should_be_invalid(record)
     end
   end
@@ -217,13 +217,13 @@ describe ValidatesZipcode, '#validate_each' do
   context 'Czech' do
     it 'validates with a valid zipcode' do
       ['12000', '721 00'].each do |zipcode|
-        record = build_record(zipcode, 'CZ')
+        record = build_record(zipcode, 'CZE')
         zipcode_should_be_valid(record)
       end
     end
 
     it 'does not validate with an invalid zipcode' do
-      record = build_record('981 32', 'CZ')
+      record = build_record('981 32', 'CZE')
       zipcode_should_be_invalid(record)
     end
   end
@@ -231,13 +231,13 @@ describe ValidatesZipcode, '#validate_each' do
   context 'Slovakia' do
     it 'validates with a valid zipcode' do
       ['83102', '911 05', '094 12'].each do |zipcode|
-        record = build_record(zipcode, 'SK')
+        record = build_record(zipcode, 'SVK')
         zipcode_should_be_valid(record)
       end
     end
 
     it 'does not validate with an invalid zipcode' do
-      record = build_record('120 00', 'SK')
+      record = build_record('120 00', 'SVK')
       zipcode_should_be_invalid(record)
     end
   end
@@ -245,13 +245,13 @@ describe ValidatesZipcode, '#validate_each' do
   context 'Israel' do
     it 'validates with a valid zipcode' do
       ['1029200', '880000', '90001'].each do |zipcode|
-        record = build_record(zipcode, 'IL')
+        record = build_record(zipcode, 'ISR')
         zipcode_should_be_valid(record)
       end
     end
 
     it 'does not validate with an invalid zipcode' do
-      record = build_record('1200', 'IL')
+      record = build_record('1200', 'ISR')
       zipcode_should_be_invalid(record)
     end
   end
@@ -260,12 +260,12 @@ end
 describe ValidatesZipcode, '.valid?' do
   context "Spain" do
     it 'is true with a valid zipcode for a given country code' do
-      expect(ValidatesZipcode.valid?('93108', 'ES')).to eq(true)
+      expect(ValidatesZipcode.valid?('93108', 'ESP')).to eq(true)
     end
 
     it 'is false with an invalid zipcode for a given country code' do
       ['1234', '12345-12345', 'D0D0D0', 'invalid_zip'].each do |zipcode|
-        expect(ValidatesZipcode.valid?(zipcode, 'ES')).to eq(false)
+        expect(ValidatesZipcode.valid?(zipcode, 'ESP')).to eq(false)
       end
     end
 
