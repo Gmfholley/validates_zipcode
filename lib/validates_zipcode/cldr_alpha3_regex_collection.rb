@@ -227,7 +227,7 @@ module ValidatesZipcode
      TZA: /\A([a-zA-Z\d\s]){3,}\z/,
      TTO: /\A\d{6}\z/,
      TWN: /\A\d{3}\z/,
-     GBR: /\A([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)\z/,
+     # GBR: /\A([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)\z/, duplicated - GB and UK from original list
      UGA: /\A([a-zA-Z\d\s]){3,}\z/,
      UMI: /\A([a-zA-Z\d\s]){3,}\z/,
      URY: /\A([a-zA-Z\d\s]){3,}\z/,
